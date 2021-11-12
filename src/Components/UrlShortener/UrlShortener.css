@@ -1,0 +1,78 @@
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  padding-top: 10vh;
+  align-items: center;
+  text-align: center;
+}
+
+.main h1 {
+  font-family: "Orbitron", sans-serif;
+  color: rgb(240, 240, 20);
+  font-size: 3rem;
+}
+.main h2{
+    margin: 0;
+    
+}
+.url-input {
+  width: 80%;
+  margin: 2%;
+}
+.url-input input {
+  padding: 0.6%;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  width: 40%;
+  outline: none;
+}
+.url-input input:focus {
+  outline: none;
+}
+.generate-url {
+  width: 15%;
+}
+.short-url-div{
+    width: 80%;
+    margin: 0 auto;
+    /* text-align: center; */
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.short-url{
+    margin: 2%;
+    text-decoration: underline;
+}
+.copy-btn {
+    margin: 2%;
+  width: 15%;
+}
+.btn button {
+  width: 100%;
+  padding: 4%;
+  border: 1px solid yellow;
+  border-radius: 6px;
+  background: transparent;
+  color: yellow;
+  font-size: 1.3rem;
+  outline: none;
+}
+.btn button:hover {
+  outline: none;
+  /* border: 2px solid yellow; */
+  cursor: pointer;
+}
+.error {
+  margin: 2%;
+  color: red;
+  font-size: 1.3rem;
+  text-align: left;
+}
