@@ -7,6 +7,7 @@ export default function UrlShortener() {
   const [longUrl, setLongUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [copyBtnText, setCopyBtnText] = useState("Copy");
+  const [loadingMessage, setLoadingMessage] = useState("");
 
   const getShortUrl = async () => {
     try {
@@ -15,18 +16,22 @@ export default function UrlShortener() {
         return;
       }
 
-      let res = await axios.post("https://myminurl.herokuapp.com/api/shorten", { longUrl });
-      console.log(res);
+      setLoadingMessage("Generating Short Link...");
+
+      let res = await axios.post("https://myminurl.herokuapp.com/api/shorten", {
+        longUrl,
+      });
+
+      setLoadingMessage("");
 
       if (res.data === "Invalid url") {
         setErrorMessage("Enter a valid url");
         setShortUrl("");
-      } 
-      else {
+      } else {
         setShortUrl(res.data.shortUrl);
         setErrorMessage("");
         setLongUrl("");
-        setCopyBtnText("Copy")
+        setCopyBtnText("Copy");
       }
     } catch (err) {
       console.log(err);
@@ -50,7 +55,9 @@ export default function UrlShortener() {
       <div className="generate-url btn">
         <button onClick={getShortUrl}>Shorten Link</button>
       </div>
-      <div className="error">{errorMessage}</div>
+      <div className="error">
+        {errorMessage ? errorMessage : loadingMessage}
+      </div>
       {shortUrl ? (
         <div className="short-url-div">
           <h2>Short Link</h2>
