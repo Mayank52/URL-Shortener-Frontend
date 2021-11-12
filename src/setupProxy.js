@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "hypnotic-horn.surge.sh",
+      target: "https://myminurl.herokuapp.com",
       changeOrigin: true,
     })
   );

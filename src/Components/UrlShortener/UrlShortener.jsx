@@ -15,7 +15,7 @@ export default function UrlShortener() {
         return;
       }
 
-      let res = await axios.post("/api/shorten", { longUrl });
+      let res = await axios.post("https://myminurl.herokuapp.com/api/shorten", { longUrl });
       console.log(res);
 
       if (res.data === "Invalid url") {
